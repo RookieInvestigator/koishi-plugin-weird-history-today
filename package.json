@@ -34,6 +34,10 @@
   "koishi": {
     "description": {
       "zh-CN": "怪奇历史上的今天"
+    },
+    "preview": true,
+    "service": {
+      "required": ["database"]
     }
   }
 }
