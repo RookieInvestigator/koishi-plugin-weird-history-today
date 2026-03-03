@@ -9,8 +9,8 @@
     "data"
   ],
   "scripts": {
-    "build": "tsc -b",
-    "dev": "tsc -b -w"
+    "build": "npx tsc -b",
+    "dev": "npx tsc -b -w"
   },
   "keywords": [
     "koishi",

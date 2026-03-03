@@ -119,9 +119,9 @@ export function apply(ctx: Context, config: Config) {
 
   history.subcommand('.add <date:string> <content:text>', '添加历史事件')
     .alias('history.添加')
-    .authority(config.authority)
     .example('history.add 03-15 1493年，哥伦布返回西班牙')
-    .action((_, date, content) => {
+    .action(({ session }, date: string, content: string) => {
+      if ((session?.user as any)?.authority < config.authority) return '权限不足'
       const result = parseDate(date)
       if (!result.ok) return result.error
 
@@ -146,9 +146,9 @@ export function apply(ctx: Context, config: Config) {
 
   history.subcommand('.remove <date:string> <index:posint>', '删除历史事件（序号从1开始）')
     .alias('history.删除')
-    .authority(config.authority)
     .example('history.remove 03-15 2    删除3月15日第2条记录')
-    .action((_, date, index) => {
+    .action(({ session }, date: string, index: number) => {
+      if ((session?.user as any)?.authority < config.authority) return '权限不足'
       const result = parseDate(date)
       if (!result.ok) return result.error
 
@@ -170,8 +170,8 @@ export function apply(ctx: Context, config: Config) {
     })
 
   history.subcommand('.list [date:string]', '列出指定日期所有事件（带序号，便于删除）')
-    .authority(config.authority)
-    .action((_, date) => {
+    .action(({ session }, date: string) => {
+      if ((session?.user as any)?.authority < config.authority) return '权限不足'
       let key: string
 
       if (date) {
