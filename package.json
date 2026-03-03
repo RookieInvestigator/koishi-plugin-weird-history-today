@@ -1,0 +1,39 @@
+{
+  "name": "koishi-plugin-weird-history-today",
+  "version": "1.0.0",
+  "description": "历史上的今天 - 查询和记录历史事件",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "files": [
+    "lib",
+    "data"
+  ],
+  "scripts": {
+    "build": "tsc -b",
+    "dev": "tsc -b -w"
+  },
+  "keywords": [
+    "koishi",
+    "plugin",
+    "history"
+  ],
+  "license": "MIT",
+  "author": "fifish",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RookieInvestigator/koishi-plugin-weird-history-today.git"
+  },
+  "peerDependencies": {
+    "koishi": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "koishi": "^4.0.0",
+    "typescript": "^5.0.0"
+  },
+  "koishi": {
+    "description": {
+      "zh-CN": "历史上的今天"
+    }
+  }
+}
